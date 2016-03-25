@@ -109,6 +109,52 @@ site-cookbooks/
 knife solo prepare sample
 ```
 
+## recipeを実装
+
+### site-cookbooks に apache をインストールする recipe を追加
+
+```
+knife cookbook apache -o site-cookbooks
+```
+
+### インストール & 起動時に動作しているように
+
+site-cookbooks/apache/recipes
+
+```ruby
+package "httpd" do
+  action :install
+end
+
+service "httpd" do
+  action [ :enable, :start ]
+end
+```
+
+## nodes/sample では、 apache をインストールするように設定
+
+
+nodes/sample.json
+
+```json
+  "run_list": [
+    "recipe[apache]"
+  ],
+```
+
+## cook 実行
+
+```
+knife solo cook sample
+```
+
+## テストが通ることを確認
+
+```
+rake spec
+```
+
+
 # 参考
 
 - [Vagrant ssh-configでvagrant sshを快適にする - Qiita](http://qiita.com/Sanche/items/43d615beef05cd9417e2)
