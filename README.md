@@ -18,4 +18,39 @@ Vagrant.configure(2) do |config|
 end
 ```
 
+# soerverspec 導入
+
+Gemfile
+
+```
+gem 'serverspec'
+```
+
+```
+serverspec-init
+```
+
+## サンプルのテストをシンプルに
+
+spec/default/sample_spec.rb
+
+```
+require 'spec_helper'
+
+describe service('httpd') do
+  it { should be_enabled }
+  it { should be_running }
+end
+
+describe port(80) do
+  it { should be_listening }
+end
+```
+
+## テストがこけることを確認
+
+```
+rake spec
+```
+
 # chef solo を入れる
