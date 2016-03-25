@@ -154,12 +154,15 @@ knife solo cook sample
 rake spec
 ```
 
+# circle-ci で実行可能に
+
+
+
 
 # 参考
 
 - [Vagrant ssh-configでvagrant sshを快適にする - Qiita](http://qiita.com/Sanche/items/43d615beef05cd9417e2)
 - [knife-soloによるITインフラ構築 - Qiita](http://qiita.com/_daisuke0802/items/f5446d031a33c8659d36)
 - [chef-soloのレシピのカスタマイズの記録 | IsaB](http://blog.isao.co.jp/chef-solo_custom-recipe/)
-
-
+- [naoya/circleci-serverspec: Example: Continuous Integration using vagrant-aws, Chef, serverspec and CircleCI](https://github.com/naoya/circleci-serverspec)
 
